@@ -9,7 +9,6 @@ def modify_pdf(filename, cpf, position, color, upload_folder):
     packet = BytesIO()
     can = canvas.Canvas(packet, pagesize=A4)
 
-    #Define the coordinates for each corner
     if position == 'top-left':
         x = 50
         y = 800
@@ -25,9 +24,8 @@ def modify_pdf(filename, cpf, position, color, upload_folder):
     else:
         raise ValueError('Invalid position')
 
-    #Draw main text (in orange)
-    can.setFillColor(color)  #Orange color
-    can.setFont("Helvetica", 8)  #Set font to Helvetica, size 14
+    can.setFillColor(color)
+    can.setFont("Helvetica", 8)
     can.drawString(x, y, cpf)
 
     can.save()
